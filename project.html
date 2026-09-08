@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details — Mustafa Ali</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+  <!-- TOP NAVBAR -->
+  <header class="site-navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/profile/mustafa.jpg" alt="Mustafa Ali" class="nav-logo-img">
+        MUSTAFA ALI
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="career.html" class="nav-link">Career</a></li>
+        <li><a href="works.html" class="nav-link active">Works</a></li>
+        <li><a href="clients.html" class="nav-link">Clients</a></li>
+      </ul>
+
+      <div class="nav-socials">
+        <a href="https://www.instagram.com/mustafa___alli_3d/" target="_blank" rel="noopener">instagram</a>
+        <a href="https://www.behance.net/mustafaali79" target="_blank" rel="noopener">behance</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="main-wrapper">
+    <div class="project-detail-header">
+      <a href="works.html" class="back-link">
+        ← Back to Selected Works
+      </a>
+      <div id="project-category-badge" style="font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fg-muted); margin-bottom: 8px;"></div>
+      <h1 class="project-detail-title" id="project-title">Loading Project...</h1>
+      <p class="project-detail-desc" id="project-desc"></p>
+    </div>
+
+    <!-- GALLERY GRID -->
+    <div class="project-gallery-grid" id="project-gallery">
+      <!-- Loaded dynamically via JS -->
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-compact-inner">
+      <a href="index.html" class="footer-compact-logo">MUSTAFA ALI</a>
+      <nav class="footer-page-links" aria-label="Footer pages">
+        <a href="index.html" title="Home" aria-label="Home"><i class="fa-solid fa-house"></i></a>
+        <a href="about.html" title="About" aria-label="About"><i class="fa-solid fa-user"></i></a>
+        <a href="career.html" title="Career" aria-label="Career"><i class="fa-solid fa-briefcase"></i></a>
+        <a href="works.html" title="Works" aria-label="Works"><i class="fa-solid fa-images"></i></a>
+        <a href="clients.html" title="Clients" aria-label="Clients"><i class="fa-solid fa-users"></i></a>
+      </nav>
+      <nav class="footer-social-links" aria-label="Social links">
+        <a href="https://wa.me/201069958503" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:mustafaali22011@gmail.com" title="Email" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://www.instagram.com/mustafa___alli_3d/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.behance.net/mustafaali79" target="_blank" rel="noopener" title="Behance" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
+      </nav>
+      <span class="footer-compact-copy">&copy; 2025 All rights reserved</span>
+    </div>
+  </footer>
+
+  <script src="js/projects.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
