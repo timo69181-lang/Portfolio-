@@ -32,9 +32,6 @@
 
   setupPageTransitions();
 
-  // --- FEATURED CLIENTS ON HOMEPAGE (CLIENT LOGO MARQUEE) ---
-  fillMarqueeWithClients(document.getElementById('featured-works-grid'));
-
   // --- WORKS PAGE LOGIC ---
   const worksGridEl = document.getElementById('works-grid');
   if (worksGridEl) {
@@ -73,12 +70,8 @@
     img.alt = client.name;
     img.loading = 'lazy';
     img.decoding = 'async';
-    // A logo that fails to load must never fall back to a text label:
-    // the whole card (and its marquee slide) is dropped instead.
-    img.onerror = () => {
-      const slide = card.closest('.marquee-slide');
-      (slide || card).remove();
-    };
+    // A logo that fails to load must never fall back to a text label.
+    img.onerror = () => card.remove();
     mediaWrap.appendChild(img);
 
     card.appendChild(mediaWrap);
@@ -91,20 +84,6 @@
     return card;
   }
 
-  // Shared helper: builds a marquee slide containing a client logo card (logo only, no caption)
-  function createClientSlide(client) {
-    const slide = document.createElement('div');
-    slide.className = 'marquee-slide';
-    slide.appendChild(createClientCard(client, false));
-    return slide;
-  }
-
-  function fillMarqueeWithClients(containerEl) {
-    if (!containerEl) return;
-    containerEl.innerHTML = '';
-    getClientsWithLogos().forEach(client => containerEl.appendChild(createClientSlide(client)));
-  }
-
   function fillClientsGrid(containerEl) {
     if (!containerEl) return;
     containerEl.innerHTML = '';
@@ -113,152 +92,6 @@
 
   // --- CLIENTS PAGE GRID ---
   fillClientsGrid(document.getElementById('clients-grid'));
-
-  // --- INFINITE AUTO-SCROLLING MARQUEE ---
-  // Drives the track with requestAnimationFrame instead of a percentage-based CSS
-  // keyframe, so it stays smooth and seamless no matter how many slides exist or
-  // when lazy-loaded logos change the track width.
-  function initInfiniteMarquee(track) {
-    if (!track || track.getAttribute('data-marquee-ready') === 'true') return;
-
-    var originals = Array.prototype.slice.call(track.children);
-    if (originals.length === 0) return;
-
-    track.setAttribute('data-marquee-ready', 'true');
-
-    var viewport = track.parentElement;
-    var SPEED = parseFloat(track.getAttribute('data-marquee-speed')) || 45; // pixels per second
-    var offset = 0;
-    var loopWidth = 0;
-    var paused = false;
-    var lastTime = 0;
-    var rafId = 0;
-
-    // Duplicate the original slides until the track is at least twice as wide as
-    // the viewport. That guarantees there is always content filling the gap when
-    // the offset wraps back around, so the loop never shows empty space.
-    function buildClones() {
-      Array.prototype.slice.call(track.querySelectorAll('[data-marquee-clone="true"]'))
-        .forEach(function (clone) { clone.remove(); });
-
-      var liveOriginals = Array.prototype.slice.call(track.children);
-      if (liveOriginals.length === 0) return;
-
-      var baseWidth = measureWidth(liveOriginals);
-      if (baseWidth <= 0) return;
-
-      var viewportWidth = viewport ? viewport.clientWidth : window.innerWidth;
-      var setsNeeded = Math.max(2, Math.ceil((viewportWidth * 2) / baseWidth) + 1);
-
-      for (var set = 1; set < setsNeeded; set += 1) {
-        liveOriginals.forEach(function (slide) {
-          var clone = slide.cloneNode(true);
-          clone.removeAttribute('id');
-          clone.setAttribute('data-marquee-clone', 'true');
-          clone.setAttribute('aria-hidden', 'true');
-          Array.prototype.slice.call(clone.querySelectorAll('a')).forEach(function (link) {
-            link.setAttribute('tabindex', '-1');
-          });
-          track.appendChild(clone);
-        });
-      }
-
-      loopWidth = baseWidth;
-    }
-
-    function measureWidth(slides) {
-      var total = 0;
-      slides.forEach(function (slide) {
-        var styles = window.getComputedStyle(slide);
-        total += slide.getBoundingClientRect().width +
-          parseFloat(styles.marginLeft || 0) +
-          parseFloat(styles.marginRight || 0);
-      });
-      // Include the flex gap between the slides of one full set.
-      var trackStyles = window.getComputedStyle(track);
-      var gap = parseFloat(trackStyles.columnGap || trackStyles.gap || 0) || 0;
-      if (gap && slides.length > 0) total += gap * slides.length;
-      return total;
-    }
-
-    function step(now) {
-      if (!lastTime) lastTime = now;
-      var delta = (now - lastTime) / 1000;
-      lastTime = now;
-
-      if (!paused && loopWidth > 0) {
-        offset += SPEED * delta;
-        // Seamless wrap: one full set of slides has scrolled by, so reset.
-        if (offset >= loopWidth) offset -= loopWidth;
-        track.style.transform = 'translate3d(' + (-offset).toFixed(2) + 'px, 0, 0)';
-      }
-
-      rafId = window.requestAnimationFrame(step);
-    }
-
-    function refresh() {
-      buildClones();
-      if (loopWidth > 0) offset = offset % loopWidth;
-    }
-
-    function start() {
-      if (rafId) return;
-      lastTime = 0;
-      rafId = window.requestAnimationFrame(step);
-    }
-
-    function stop() {
-      if (!rafId) return;
-      window.cancelAnimationFrame(rafId);
-      rafId = 0;
-    }
-
-    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
-
-    // The CSS keyframe animation is disabled; JS owns the movement now.
-    track.style.animation = 'none';
-    track.style.willChange = 'transform';
-
-    refresh();
-
-    if (reduceMotion && reduceMotion.matches) {
-      track.style.transform = 'translate3d(0, 0, 0)';
-    } else {
-      start();
-    }
-
-    // Pause on hover / keyboard focus so users can click a logo.
-    if (viewport) {
-      viewport.addEventListener('mouseenter', function () { paused = true; });
-      viewport.addEventListener('mouseleave', function () { paused = false; });
-      viewport.addEventListener('focusin', function () { paused = true; });
-      viewport.addEventListener('focusout', function () { paused = false; });
-    }
-
-    // Don't burn frames while the tab is hidden.
-    document.addEventListener('visibilitychange', function () {
-      if (document.hidden) stop();
-      else if (!(reduceMotion && reduceMotion.matches)) start();
-    });
-
-    // Re-measure once every logo has decoded and whenever the layout changes.
-    Array.prototype.slice.call(track.querySelectorAll('img')).forEach(function (img) {
-      img.loading = 'eager';
-      if (!img.complete) {
-        img.addEventListener('load', refresh, { once: true });
-        img.addEventListener('error', refresh, { once: true });
-      }
-    });
-    window.addEventListener('load', refresh);
-
-    var resizeTimer = 0;
-    window.addEventListener('resize', function () {
-      window.clearTimeout(resizeTimer);
-      resizeTimer = window.setTimeout(refresh, 150);
-    });
-  }
-
-  document.querySelectorAll('.slider-marquee-track').forEach(initInfiniteMarquee);
 
   // --- PROJECT DETAIL PAGE LOGIC ---
   const projectTitleEl = document.getElementById('project-title');
