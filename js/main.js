@@ -37,7 +37,7 @@
   if (worksGridEl) {
     worksGridEl.innerHTML = '';
 
-    const importantOrder = ['huawei', 'waqep', 'amlak', 'stc-pay', 'sukarah', 'danikin', 'stc-bank', 'elm', 'unity', 'valorant', 'shatana'];
+    const importantOrder = ['huawei', 'waqep', 'amlak', 'stc-pay', 'sukarah', 'danikin', 'mistrac', 'stc-bank', 'elm', 'unity', 'valorant', 'shatana'];
     const importantProjects = importantOrder.map(id => getProject(id)).filter(Boolean);
     const otherProjects = PROJECTS.filter(p => !importantOrder.includes(p.id));
 

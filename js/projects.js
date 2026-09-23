@@ -7,6 +7,40 @@ const PROJECTS = [
   { id: 'stc-pay', name: 'STC Pay Experiential Space', category: 'Events', description: 'Event environment and experiential space design supporting stakeholder approvals and production.', imageCount: 10, behanceUrl: 'https://www.behance.net/gallery/252222145/STC-Smart-Service-Booth', logo: 'stcpay.png' },
   { id: 'sukarah', name: 'Sukarah Exhibition Booth', category: 'Exhibitions', description: 'Exhibition booth and commercial CGI visualization for Sukarah.', imageCount: 17, behanceUrl: 'https://www.behance.net/gallery/253680303/SUKARAH-Exhibition-Booth', logo: 'sukarah].png' },
   { id: 'danikin', name: 'Danikin', category: 'Products', description: '3D product modeling, studio lighting, and material development for Danikin.', imageCount: 13, logo: 'dankin.png' },
+  { id: 'mistrac', name: 'MISTRAC Exhibition Booth', category: 'Exhibitions', description: 'A 3D exhibition booth design created for MISTRAC Forklifts Center, developed within a 6 x 10 meter (60 sqm) space. The booth was designed to showcase the company\'s forklifts, tires, and related products while maintaining a clear and professional visitor flow. The layout combines large-scale product displays with a reception counter, meeting area, product showcase zone, and comfortable seating space. The visual direction follows MISTRAC\'s blue and white brand identity, creating a clean, industrial, and modern exhibition environment with strong brand visibility from different viewing angles. Scope: 3D Booth Design · Exhibition Design · Space Planning · 3D Visualization · Rendering.', imageFiles: [
+    'WhatsApp Image 2026-09-23 at 10.34.37 AM.jpeg',
+    'WhatsApp Image 2026-09-23 at 10.34.51 AM.jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.03 AM.jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.14 AM (1).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.14 AM.jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.19 AM.jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.24 AM.jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.25 AM (1).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.25 AM.jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.26 AM.jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.27 AM.jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.30 AM (1).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.30 AM (2).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.30 AM (3).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.30 AM.jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.31 AM (1).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.31 AM (2).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.31 AM (3).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.31 AM (4).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.31 AM (5).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.31 AM (6).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.31 AM.jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.33 AM (1).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.33 AM (2).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.33 AM (3).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.33 AM (4).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.33 AM (5).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.33 AM (6).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.33 AM (7).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.33 AM (8).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.33 AM (9).jpeg',
+    'WhatsApp Image 2026-09-23 at 10.35.33 AM.jpeg'
+  ] },
   { id: 'stc-bank', name: 'STC Bank Event Environment', category: 'Events', description: 'Large-scale event environment visualization focused on brand presence and spatial flow.', imageCount: 30, behanceUrl: 'https://www.behance.net/gallery/247855453/STC-Saudi-National-Day', logo: 'stcbank.png' },
   { id: 'elm', name: 'ELM Exhibition Booth', category: 'Exhibitions', description: 'Exhibition booth and commercial visualization for ELM.', imageCount: 14, logo: 'elm.png' },
   { id: 'unity', name: 'Unity 3D Product & Event', category: 'Products', description: 'Product visualization and 3D environment design for Unity.', imageCount: 31, behanceUrl: 'https://www.behance.net/gallery/256123309/Unity-UDay-Abu-Dhabi-3D-Event-Design-Visualization', logo: 'unity.png' },
@@ -50,6 +84,11 @@ function getProject(id) {
 }
 
 function getProjectImages(project) {
+  if (project.imageFiles) {
+    const folder = encodeURIComponent(project.id);
+    return project.imageFiles.map(filename => `assets/projects/${folder}/${encodeURIComponent(filename)}`);
+  }
+
   if (project.imageFolders) {
     return project.imageFolders.flatMap(folderId => {
       const folder = encodeURIComponent(folderId);
