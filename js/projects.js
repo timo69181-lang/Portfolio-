@@ -18,12 +18,7 @@ const PROJECTS = [
   { id: 'sandstorm', name: 'Sandstorm', category: 'Events', description: 'Experiential environment visualization from the supplied project resources.', imageCount: 6 },
   { id: 'takamul', name: 'Takamul', category: 'Exhibitions', description: 'Exhibition and spatial visualization from the supplied project resources.', imageCount: 25, logo: 'takamul.png' },
   { id: 'tameesa', name: 'Tameesa', category: 'Exhibitions', description: 'Exhibition booth and commercial visualization for Tameesa.', imageCount: 13, behanceUrl: 'https://www.behance.net/gallery/253847615/TAMEESA-Restaurant-Facade-Design-3D-Visualization' },
-  { id: 'najm-1', name: 'Najm Event 01', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 9, logo: 'najm.png' },
-  { id: 'najm-2', name: 'Najm Event 02', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 9, logo: 'najm.png' },
-  { id: 'najm-3', name: 'Najm Event 03', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 8, logo: 'najm.png' },
-  { id: 'najm-4', name: 'Najm Event 04', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 8, logo: 'najm.png' },
-  { id: 'najm-5', name: 'Najm Event 05', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 8, logo: 'najm.png' },
-  { id: 'najm-6', name: 'Najm Event 06', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 8, logo: 'najm.png' }
+  { id: 'najm', name: 'Najm Events', category: 'Events', description: 'A collection of six Najm event environments and spatial visualizations.', imageFolders: ['najm-1', 'najm-2', 'najm-3', 'najm-4', 'najm-5', 'najm-6'], imageCounts: { 'najm-1': 9, 'najm-2': 9, 'najm-3': 8, 'najm-4': 8, 'najm-5': 8, 'najm-6': 8 }, logo: 'najm.png' }
 ];
 
 const CLIENT_LOGOS = [
@@ -55,6 +50,16 @@ function getProject(id) {
 }
 
 function getProjectImages(project) {
+  if (project.imageFolders) {
+    return project.imageFolders.flatMap(folderId => {
+      const folder = encodeURIComponent(folderId);
+      return Array.from(
+        { length: project.imageCounts?.[folderId] || 0 },
+        (_, index) => `assets/projects/${folder}/${encodeURIComponent(`${index + 1}.jpg`)}`
+      );
+    });
+  }
+
   const filenames = Array.from(
     { length: project.imageCount || 0 },
     (_, index) => `${index + 1}.jpg`
