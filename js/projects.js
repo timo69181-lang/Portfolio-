@@ -103,13 +103,13 @@ const PROJECTS = [
   },
   {
     id: 'qbt',
-    name: 'QBT Exhibition Booth',
+    name: 'QBT',
     category: 'Exhibitions',
     description: 'Exhibition booth design and CGI visualization for QBT — spatial concept development with a professional product display setup and high-end presentation rendering.'
   },
   {
     id: 'tameesa',
-    name: 'Tameesa Exhibition Booth',
+    name: 'Tameesa',
     category: 'Exhibitions',
     description: 'Exhibition booth and commercial visualization for Tameesa — detailed 3D spatial design with a clean branded layout and presentation-quality CGI renders.'
   }

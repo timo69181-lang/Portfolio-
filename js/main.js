@@ -5,7 +5,7 @@
   function createProjectCardHTML(project) {
     return `
       <div class="project-thumb-wrap">
-        <img src="${getCoverImage(project)}" alt="${project.name}" loading="lazy" class="project-img">
+        <img src="${getCoverImage(project)}" alt="${project.name}" loading="lazy" decoding="async" class="project-img">
         
         <div class="project-hover-overlay">
           <span class="project-hover-cat">${project.category}</span>
@@ -54,6 +54,7 @@
       img.src = `assets/logos/${encodeURIComponent(client.logo)}`;
       img.alt = client.name;
       img.loading = 'lazy';
+      img.decoding = 'async';
       img.onerror = () => {
         img.remove();
         const fallback = document.createElement('span');
@@ -121,6 +122,7 @@
       img.src = src;
       img.alt = `${project.name} Render ${idx + 1}`;
       img.loading = idx < 2 ? 'eager' : 'lazy';
+      img.decoding = 'async';
       img.onerror = () => { img.style.display = 'none'; };
       projectGalleryEl.appendChild(img);
     });
@@ -134,13 +136,10 @@
     var originals = Array.prototype.slice.call(track.children);
     if (originals.length === 0) return;
 
-    // Build the track from whole copies of the original set so the CSS
-    // translateX(-50%) keyframe produces a seamless infinite loop.
-    // Use an even number of copies so both halves are identical, and enough
-    // copies that a single half always fills a wide viewport.
-    var copies = 4;
-    if (originals.length * 3 < 12) copies = 6;
-    if (originals.length < 5) copies = 10;
+    // Seamless infinite loop: the CSS keyframe translates the track -50%,
+    // so exactly 2 identical halves are enough. Using only 2 copies means
+    // every logo/image is repeated at most twice instead of four to ten.
+    var copies = 2;
 
     for (var c = 1; c < copies; c += 1) {
       originals.forEach(function(s) {
