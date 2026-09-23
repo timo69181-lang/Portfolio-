@@ -18,7 +18,7 @@ const PROJECTS = [
   { id: 'sandstorm', name: 'Sandstorm', category: 'Events', description: 'Experiential environment visualization from the supplied project resources.', imageCount: 6 },
   { id: 'takamul', name: 'Takamul', category: 'Exhibitions', description: 'Exhibition and spatial visualization from the supplied project resources.', imageCount: 25, logo: 'takamul.png' },
   { id: 'tameesa', name: 'Tameesa', category: 'Exhibitions', description: 'Exhibition booth and commercial visualization for Tameesa.', imageCount: 13, behanceUrl: 'https://www.behance.net/gallery/253847615/TAMEESA-Restaurant-Facade-Design-3D-Visualization' },
-  { id: 'najm', name: 'Najm Events', category: 'Events', description: 'A collection of six Najm event environments and spatial visualizations.', imageFolders: ['najm-1', 'najm-2', 'najm-3', 'najm-4', 'najm-5', 'najm-6'], imageCounts: { 'najm-1': 9, 'najm-2': 9, 'najm-3': 8, 'najm-4': 8, 'najm-5': 8, 'najm-6': 8 }, logo: 'najm.png' }
+  { id: 'najm', name: 'Najm', category: 'Events', description: 'A collection of six Najm event environments and spatial visualizations.', imageFolders: ['najm-1', 'najm-2', 'najm-3', 'najm-4', 'najm-5', 'najm-6'], imageCounts: { 'najm-1': 9, 'najm-2': 9, 'najm-3': 8, 'najm-4': 8, 'najm-5': 8, 'najm-6': 8 }, logo: 'najm.png' }
 ];
 
 const CLIENT_LOGOS = [
