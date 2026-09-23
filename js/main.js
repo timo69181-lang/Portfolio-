@@ -77,7 +77,13 @@
         mediaWrap.appendChild(fallback);
       };
       mediaWrap.appendChild(img);
-    } else if (client.name) {
+    } else if (client.mark) {
+      const mark = document.createElement('span');
+      mark.className = 'client-brand-mark';
+      mark.textContent = client.mark;
+      mark.setAttribute('aria-hidden', 'true');
+      mediaWrap.appendChild(mark);
+    } else {
       const fallback = document.createElement('span');
       fallback.className = 'client-name-fallback';
       fallback.textContent = client.name;
