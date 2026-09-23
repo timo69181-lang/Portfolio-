@@ -15,3 +15,6 @@ setup-assets.ps1
 
 # Staging folder for incoming project photos
 assets/new photos/
+
+# Raw source photos (too large for GitHub; site uses processed copies)
+assets/Project resources/
