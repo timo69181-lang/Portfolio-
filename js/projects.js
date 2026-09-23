@@ -23,8 +23,7 @@ const PROJECTS = [
   { id: 'najm-3', name: 'Najm Event 03', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 8 },
   { id: 'najm-4', name: 'Najm Event 04', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 8 },
   { id: 'najm-5', name: 'Najm Event 05', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 8 },
-  { id: 'najm-6', name: 'Najm Event 06', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 8 },
-  { id: 'resource-collection', name: 'Additional Project Resources', category: 'Archive', description: 'Additional imagery from the supplied project resources.', imageCount: 22 }
+  { id: 'najm-6', name: 'Najm Event 06', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 8 }
 ];
 
 const CLIENTS = PROJECTS.map(project => ({
