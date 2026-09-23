@@ -43,9 +43,7 @@
 
     [...importantProjects, ...otherProjects].forEach(project => {
       const card = document.createElement('a');
-      card.href = project.behanceUrl || BEHANCE_PROFILE_URL;
-      card.target = '_blank';
-      card.rel = 'noopener';
+      card.href = `project.html?id=${encodeURIComponent(project.id)}`;
       card.className = 'project-card';
       card.innerHTML = createProjectCardHTML(project);
       worksGridEl.appendChild(card);
