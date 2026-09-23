@@ -19,11 +19,11 @@ const PROJECTS = [
   { id: 'takamul', name: 'Takamul', category: 'Exhibitions', description: 'Exhibition and spatial visualization from the supplied project resources.', imageCount: 25, logo: 'takamul.png' },
   { id: 'tameesa', name: 'Tameesa', category: 'Exhibitions', description: 'Exhibition booth and commercial visualization for Tameesa.', imageCount: 13, behanceUrl: 'https://www.behance.net/gallery/253847615/TAMEESA-Restaurant-Facade-Design-3D-Visualization' },
   { id: 'najm-1', name: 'Najm Event 01', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 9, logo: 'najm.png' },
-  { id: 'najm-2', name: 'Najm Event 02', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 9 },
-  { id: 'najm-3', name: 'Najm Event 03', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 8 },
-  { id: 'najm-4', name: 'Najm Event 04', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 8 },
-  { id: 'najm-5', name: 'Najm Event 05', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 8 },
-  { id: 'najm-6', name: 'Najm Event 06', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 8 }
+  { id: 'najm-2', name: 'Najm Event 02', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 9, logo: 'najm.png' },
+  { id: 'najm-3', name: 'Najm Event 03', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 8, logo: 'najm.png' },
+  { id: 'najm-4', name: 'Najm Event 04', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 8, logo: 'najm.png' },
+  { id: 'najm-5', name: 'Najm Event 05', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 8, logo: 'najm.png' },
+  { id: 'najm-6', name: 'Najm Event 06', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 8, logo: 'najm.png' }
 ];
 
 const CLIENTS = PROJECTS.map(project => ({

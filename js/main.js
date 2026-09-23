@@ -85,6 +85,12 @@
     }
 
     card.appendChild(mediaWrap);
+    if (client.logo) {
+      const name = document.createElement('span');
+      name.className = 'client-card-name';
+      name.textContent = client.name;
+      card.appendChild(name);
+    }
     return card;
   }
 
