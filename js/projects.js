@@ -310,7 +310,6 @@ const PROJECT_IMAGE_OVERRIDES = {
   ],
   waqep: [
     'WhatsApp Image 2026-09-23 at 10.39.40 AM.jpeg',
-    'WhatsApp Image 2026-09-23 at 10.39.40 AM (1).jpeg',
     'WhatsApp Image 2026-09-23 at 10.39.42 AM.jpeg',
     'WhatsApp Image 2026-09-23 at 10.39.44 AM.jpeg',
     'WhatsApp Image 2026-09-23 at 10.39.47 AM.jpeg',
@@ -352,7 +351,6 @@ const PROJECT_IMAGE_OVERRIDES = {
     'WhatsApp Image 2026-09-23 at 10.35.33 AM (5).jpeg',
     'WhatsApp Image 2026-09-23 at 10.35.33 AM (6).jpeg',
     'WhatsApp Image 2026-09-23 at 10.35.33 AM (7).jpeg',
-    'WhatsApp Image 2026-09-23 at 10.35.33 AM (8).jpeg',
     'WhatsApp Image 2026-09-23 at 10.35.33 AM (9).jpeg'
   ],
   'cultural-ministry': [
