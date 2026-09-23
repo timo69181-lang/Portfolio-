@@ -16,7 +16,6 @@ const PROJECTS = [
   { id: 'mustela', name: 'Mustela', category: 'Products', description: 'Product and brand visualization from the supplied project resources.', imageCount: 6 },
   { id: 'ramadan', name: 'Ramadan', category: 'Events', description: 'Seasonal event visualization from the supplied project resources.', imageCount: 18 },
   { id: 'sandstorm', name: 'Sandstorm', category: 'Events', description: 'Experiential environment visualization from the supplied project resources.', imageCount: 6 },
-  { id: 'resource-collection', name: 'Resource Collection', category: 'Exhibitions', description: 'Exhibition and spatial visualization from the supplied project resources.', imageCount: 22 },
   { id: 'takamul', name: 'Takamul', category: 'Exhibitions', description: 'Exhibition and spatial visualization from the supplied project resources.', imageCount: 25, logo: 'takamul.png' },
   { id: 'tameesa', name: 'Tameesa', category: 'Exhibitions', description: 'Exhibition booth and commercial visualization for Tameesa.', imageCount: 13, behanceUrl: 'https://www.behance.net/gallery/253847615/TAMEESA-Restaurant-Facade-Design-3D-Visualization' },
   { id: 'najm-1', name: 'Najm Event 01', category: 'Events', description: 'Event environment visualization from the supplied project resources.', imageCount: 9, logo: 'najm.png' },
