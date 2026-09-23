@@ -140,11 +140,11 @@ const CLIENTS = [
   { name: 'Elmarqeb', project: 'elmarqeb', logo: 'المرقب.jpg' },
   { name: 'Hylo', project: 'hylo', logo: 'logoess copy.jpg' },
   { name: 'Sewar', project: 'sewar', logo: 'sewar.jpg' },
-  { name: 'MISTRAC', project: 'mistrac' },
-  { name: 'Cultural Ministry', project: 'cultural-ministry' },
-  { name: "Dunkin' Donuts", project: 'dunkin-doughnuts' },
-  { name: 'QBT', project: 'qbt' },
-  { name: 'Tameesa', project: 'tameesa' }
+  { name: 'MISTRAC', project: 'mistrac', mark: 'M' },
+  { name: 'Cultural Ministry', project: 'cultural-ministry', logo: 'شعار وزارة الثقافة - SVG.png' },
+  { name: "Dunkin' Donuts", project: 'dunkin-doughnuts', mark: 'DD' },
+  { name: 'QBT', project: 'qbt', mark: 'QBT' },
+  { name: 'Tameesa', project: 'tameesa', mark: 'T' }
 ];
 
 const PROJECT_IMAGE_OVERRIDES = {
