@@ -102,10 +102,15 @@
     CLIENTS.forEach(client => containerEl.appendChild(createClientSlide(client)));
   }
 
+  // Client logos to exclude from the Clients page grid only (Najm events 2–6)
+  const EXCLUDED_CLIENTS = new Set(['najm-2', 'najm-3', 'najm-4', 'najm-5', 'najm-6']);
+
   function fillClientsGrid(containerEl) {
     if (!containerEl) return;
     containerEl.innerHTML = '';
-    CLIENTS.forEach(client => containerEl.appendChild(createClientCard(client)));
+    CLIENTS
+      .filter(client => !EXCLUDED_CLIENTS.has(client.project))
+      .forEach(client => containerEl.appendChild(createClientCard(client)));
   }
 
   // --- CLIENTS PAGE GRID ---
