@@ -170,8 +170,14 @@ body.is-leaving::after { content: ''; position: fixed; inset: 0; z-index: 100; b
   .project-card { grid-column: span 6; }
 }
 @media (max-width: 760px) {
-  .nav-container, .site-footer { padding-right: 20px; padding-left: 20px; }
-  .nav-links { display: none; }
+  .site-navbar { height: auto; }
+  .nav-container { flex-wrap: wrap; gap: 8px 16px; padding: 12px 20px 10px; }
+  .site-footer { padding-right: 20px; padding-left: 20px; }
+  .nav-logo { font-size: 1.45rem; }
+  .nav-links { display: flex; order: 3; width: 100%; justify-content: space-between; gap: 10px; overflow-x: auto; padding-top: 4px; }
+  .nav-link { flex: 0 0 auto; font-size: .68rem; }
+  .hero-title { font-size: clamp(2.55rem, 12vw, 4.25rem); }
+  .hero-desc { font-size: 1rem; }
   .main-wrapper { padding: 28px 20px 64px; }
   .hero-section { min-height: 540px; padding: 44px 0 56px; }
   .section-header-row { align-items: flex-start; flex-direction: column; }
@@ -180,6 +186,14 @@ body.is-leaving::after { content: ''; position: fixed; inset: 0; z-index: 100; b
   .about-featured-content { padding: 28px 22px; }
   .project-card, .project-gallery-grid img { grid-column: span 12; }
   .project-gallery-grid { gap: 8px; }
+  .featured-products-inline-grid { grid-template-columns: 1fr; gap: 12px; }
+  .featured-product-card img { height: 240px; }
+  .clients-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .client-card { min-height: 180px; padding: 10px 8px 9px; }
+  .client-card-media { padding: 8px; }
+  .client-card img { max-width: 92%; max-height: 92px; }
+  .client-brand-mark { width: 78px; height: 78px; font-size: 1rem; }
+  .client-card-name { padding-top: 8px; font-size: .62rem; }
   .about-cta-banner { align-items: flex-start; flex-direction: column; padding: 28px 22px; }
   .footer-compact-inner { flex-direction: column; text-align: center; }
 }
