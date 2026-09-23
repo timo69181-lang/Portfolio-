@@ -18,6 +18,20 @@
     `;
   }
 
+  function setupPageTransitions() {
+    document.querySelectorAll('a[href]').forEach(link => {
+      link.addEventListener('click', event => {
+        const url = new URL(link.href, window.location.href);
+        if (event.defaultPrevented || link.target === '_blank' || url.origin !== window.location.origin || url.pathname === window.location.pathname) return;
+        event.preventDefault();
+        document.body.classList.add('is-leaving');
+        window.setTimeout(() => { window.location.href = url.href; }, 380);
+      });
+    });
+  }
+
+  setupPageTransitions();
+
   // --- FEATURED CLIENTS ON HOMEPAGE (CLIENT LOGO MARQUEE) ---
   fillMarqueeWithClients(document.getElementById('featured-works-grid'));
 
@@ -112,6 +126,8 @@
     projectTitleEl.textContent = project.name;
     if (projectCatBadgeEl) projectCatBadgeEl.textContent = project.category;
     if (projectDescEl) projectDescEl.textContent = project.description;
+    const projectBehanceLinkEl = document.getElementById('project-behance-link');
+    if (projectBehanceLinkEl && project.behanceUrl) projectBehanceLinkEl.href = project.behanceUrl;
     projectGalleryEl.dataset.projectId = project.id;
 
     projectGalleryEl.innerHTML = '';

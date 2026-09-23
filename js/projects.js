@@ -24,13 +24,15 @@ const PROJECTS = [
     id: 'huawei',
     name: 'Huawei Gaming Event',
     category: 'Events',
-    description: 'A 3D event concept for Huawei under the patronage of the UAE Esports Federation, designed and executed in Ras Al Khaimah. Full 3D visualization, layout planning, and final presentation before execution.'
+    description: 'A 3D event concept for Huawei under the patronage of the UAE Esports Federation, designed and executed in Ras Al Khaimah. Full 3D visualization, layout planning, and final presentation before execution.',
+    behanceUrl: 'https://www.behance.net/gallery/225724309/Huawei-Esports-Arena-3D-Event-Design-Real-Execution'
   },
   {
     id: 'waqep',
     name: 'Waqep',
     category: 'Exhibitions',
-    description: 'Exhibition booth design and CGI visualization for Waqep — spatial concept development with detailed material and lighting work for client presentations.'
+    description: 'Exhibition booth design and CGI visualization for Waqep — spatial concept development with detailed material and lighting work for client presentations.',
+    behanceUrl: 'https://www.behance.net/gallery/241443759/WAKEB-Futuristic-Defense-Exhibition-Booth'
   },
   {
     id: 'danikin',
@@ -43,25 +45,29 @@ const PROJECTS = [
     id: 'amlak',
     name: 'Amlak Commercial Visualization',
     category: 'Exhibitions',
-    description: 'Commercial visualization and exhibition booth design for Amlak, featuring high-end CGI renders and presentation-ready spatial concepts.'
+    description: 'Commercial visualization and exhibition booth design for Amlak, featuring high-end CGI renders and presentation-ready spatial concepts.',
+    behanceUrl: 'https://www.behance.net/gallery/251853785/amlak-interior-design'
   },
   {
     id: 'stc-pay',
     name: 'STC Pay Experiential Space',
     category: 'Events',
-    description: 'Event environment and experiential space design for STC Pay — immersive 3D visualization supporting stakeholder approvals and production transition.'
+    description: 'Event environment and experiential space design for STC Pay — immersive 3D visualization supporting stakeholder approvals and production transition.',
+    behanceUrl: 'https://www.behance.net/gallery/252222145/STC-Smart-Service-Booth'
   },
   {
     id: 'sukarah',
     name: 'Sukarah 3D Product Renders',
     category: 'Products',
-    description: '3D product visualization and commercial CGI rendering for Sukarah, combining spatial material lighting with cinematic product presentation quality.'
+    description: '3D product visualization and commercial CGI rendering for Sukarah, combining spatial material lighting with cinematic product presentation quality.',
+    behanceUrl: 'https://www.behance.net/gallery/253680303/SUKARAH-Exhibition-Booth'
   },
   {
     id: 'stc-bank',
     name: 'STC Bank Event Environment',
     category: 'Events',
-    description: 'Event and experiential design for STC Bank — large-scale 3D environment visualization with focus on brand presence and spatial flow.'
+    description: 'Event and experiential design for STC Bank — large-scale 3D environment visualization with focus on brand presence and spatial flow.',
+    behanceUrl: 'https://www.behance.net/gallery/247855453/STC-Saudi-National-Day'
   },
   {
     id: 'elm',
@@ -74,6 +80,7 @@ const PROJECTS = [
     name: 'Unity 3D Product & Event',
     category: 'Products',
     description: 'Product visualization and 3D environment design for Unity — spatial concept development with high-end presentation CGI quality.',
+    behanceUrl: 'https://www.behance.net/gallery/256123309/Unity-UDay-Abu-Dhabi-3D-Event-Design-Visualization',
     imageCount: 8
   },
   {
@@ -81,13 +88,15 @@ const PROJECTS = [
     name: 'Valorant Stage Concept',
     category: 'Events',
     description: 'Gaming event concept and CGI visualization for Valorant — immersive spatial design with cinematic lighting and material development.',
+    behanceUrl: 'https://www.behance.net/gallery/232671555/VALORANT-5th-Anniversary-Event-2',
     imageCount: 8
   },
   {
     id: 'mistrac',
     name: 'MISTRAC Exhibition Booth',
     category: 'Exhibitions',
-    description: 'A 3D exhibition booth design created for MISTRAC Forklifts Center within a 6 x 10 meter (60 sqm) space, showcasing forklifts, tires, and related products with a clear professional visitor flow. The layout combines large-scale product displays with a reception counter, meeting area, product showcase zone, and comfortable seating, following MISTRAC\u2019s blue and white brand identity for a clean, industrial, and modern exhibition environment.'
+    description: 'A 3D exhibition booth design created for MISTRAC Forklifts Center within a 6 x 10 meter (60 sqm) space, showcasing forklifts, tires, and related products with a clear professional visitor flow. The layout combines large-scale product displays with a reception counter, meeting area, product showcase zone, and comfortable seating, following MISTRAC\u2019s blue and white brand identity for a clean, industrial, and modern exhibition environment.',
+    behanceUrl: 'https://www.behance.net/gallery/256122765/MISTRAC-Exhibition-Booth'
   },
   {
     id: 'cultural-ministry',
@@ -99,7 +108,8 @@ const PROJECTS = [
     id: 'dunkin-doughnuts',
     name: 'Dunkin\u2019 Donuts',
     category: 'Exhibitions',
-    description: 'Commercial booth and spatial visualization for Dunkin\u2019 Donuts — branded 3D environment design with warm material, color, and lighting treatment for client presentation.'
+    description: 'Commercial booth and spatial visualization for Dunkin\u2019 Donuts — branded 3D environment design with warm material, color, and lighting treatment for client presentation.',
+    behanceUrl: 'https://www.behance.net/gallery/254312583/Dunkin-Summer-Pop-Up'
   },
   {
     id: 'qbt',
@@ -111,7 +121,8 @@ const PROJECTS = [
     id: 'tameesa',
     name: 'Tameesa',
     category: 'Exhibitions',
-    description: 'Exhibition booth and commercial visualization for Tameesa — detailed 3D spatial design with a clean branded layout and presentation-quality CGI renders.'
+    description: 'Exhibition booth and commercial visualization for Tameesa — detailed 3D spatial design with a clean branded layout and presentation-quality CGI renders.',
+    behanceUrl: 'https://www.behance.net/gallery/253847615/TAMEESA-Restaurant-Facade-Design-3D-Visualization'
   }
 ];
 
