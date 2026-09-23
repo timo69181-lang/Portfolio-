@@ -12,3 +12,6 @@ package-lock.json
 
 # Local-only setup helper
 setup-assets.ps1
+
+# Staging folder for incoming project photos
+assets/new photos/
