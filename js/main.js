@@ -144,28 +144,6 @@
     });
   }
 
-  // --- MARQUEE INFINITE LOOP SETUP ---
-  document.querySelectorAll('.slider-marquee-track').forEach(function(track) {
-    if (track.getAttribute('data-marquee-ready') === 'true') return;
-    track.setAttribute('data-marquee-ready', 'true');
-
-    var originals = Array.prototype.slice.call(track.children);
-    if (originals.length === 0) return;
-
-    // Seamless infinite loop: the CSS keyframe translates the track -50%,
-    // so exactly 2 identical halves are enough. Using only 2 copies means
-    // every logo/image is repeated at most twice instead of four to ten.
-    var copies = 2;
-
-    for (var c = 1; c < copies; c += 1) {
-      originals.forEach(function(s) {
-        var clone = s.cloneNode(true);
-        clone.removeAttribute('id');
-        track.appendChild(clone);
-      });
-    }
-  });
-
   // --- CONTACT FORM SUBMIT LOGIC ---
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
