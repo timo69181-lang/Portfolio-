@@ -43,7 +43,9 @@
 
     [...importantProjects, ...otherProjects].forEach(project => {
       const card = document.createElement('a');
-      card.href = `project.html?id=${encodeURIComponent(project.id)}`;
+      card.href = project.behanceUrl || BEHANCE_PROFILE_URL;
+      card.target = '_blank';
+      card.rel = 'noopener';
       card.className = 'project-card';
       card.innerHTML = createProjectCardHTML(project);
       worksGridEl.appendChild(card);
@@ -58,7 +60,12 @@
   // Shared helper: builds a client logo card.
   function createClientCard(client, showName = true) {
     const card = document.createElement('a');
-    card.href = client.project ? `project.html?id=${encodeURIComponent(client.project)}` : 'clients.html';
+    const clientProject = client.project ? getProject(client.project) : null;
+    card.href = clientProject?.behanceUrl || (client.project ? BEHANCE_PROFILE_URL : 'clients.html');
+    if (clientProject?.behanceUrl || client.project) {
+      card.target = '_blank';
+      card.rel = 'noopener';
+    }
     card.className = 'client-card';
     card.setAttribute('title', client.name);
 
@@ -109,7 +116,9 @@
     if (projectCatBadgeEl) projectCatBadgeEl.textContent = project.category;
     if (projectDescEl) projectDescEl.textContent = project.description;
     const projectBehanceLinkEl = document.getElementById('project-behance-link');
-    if (projectBehanceLinkEl && project.behanceUrl) projectBehanceLinkEl.href = project.behanceUrl;
+    if (projectBehanceLinkEl) {
+      projectBehanceLinkEl.href = project.behanceUrl || BEHANCE_PROFILE_URL;
+    }
     projectGalleryEl.dataset.projectId = project.id;
 
     projectGalleryEl.innerHTML = '';
